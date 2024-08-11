@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information Forms</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .form-container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 20px); /* Adjust width to fit two forms per row */
+            box-sizing: border-box;
+        }
+        .form-header {
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            box-shadow: none;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .btn-print {
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+        }
+        @media print {
+            .btn-print {
+                display: none;
+            }
+        }
+        @media (max-width: 768px) {
+            .form-container {
+                width: 100%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Form 1 -->
+        <div class="form-container">
+            <div class="form-header">Thông tin sản phẩm 1</div>
+            <form id="productForm1">
+                <label for="productName1">Tên sản phẩm:</label>
+                <input type="text" id="productName1" class="form-control" required><br>
+                <label for="price1">Giá niêm yết:</label>
+                <input type="text" id="price1" class="form-control" required><br>
+                <label for="discountPrice1">Giá giảm:</label>
+                <input type="text" id="discountPrice1" class="form-control" required><br>
+                <label for="note1">Ghi chú:</label>
+                <textarea id="note1" class="form-control"></textarea>
+            </form>
+        </div>
+
+        <!-- Form 2 -->
+        <div class="form-container">
+            <div class="form-header">Thông tin sản phẩm 2</div>
+            <form id="productForm2">
+                <label for="productName2">Tên sản phẩm:</label>
+                <input type="text" id="productName2" class="form-control" required><br>
+                <label for="price2">Giá niêm yết:</label>
+                <input type="text" id="price2" class="form-control" required><br>
+                <label for="discountPrice2">Giá giảm:</label>
+                <input type="text" id="discountPrice2" class="form-control" required><br>
+                <label for="note2">Ghi chú:</label>
+                <textarea id="note2" class="form-control"></textarea>
+            </form>
+        </div>
+
+        <!-- Form 3 -->
+        <div class="form-container">
+            <div class="form-header">Thông tin sản phẩm 3</div>
+            <form id="productForm3">
+                <label for="productName3">Tên sản phẩm:</label>
+                <input type="text" id="productName3" class="form-control" required><br>
+                <label for="price3">Giá niêm yết:</label>
+                <input type="text" id="price3" class="form-control" required><br>
+                <label for="discountPrice3">Giá giảm:</label>
+                <input type="text" id="discountPrice3" class="form-control" required><br>
+                <label for="note3">Ghi chú:</label>
+                <textarea id="note3" class="form-control"></textarea>
+            </form>
+        </div>
+
+        <!-- Form 4 -->
+        <div class="form-container">
+            <div class="form-header">Thông tin sản phẩm 4</div>
+            <form id="productForm4">
+                <label for="productName4">Tên sản phẩm:</label>
+                <input type="text" id="productName4" class="form-control" required><br>
+                <label for="price4">Giá niêm yết:</label>
+                <input type="text" id="price4" class="form-control" required><br>
+                <label for="discountPrice4">Giá giảm:</label>
+                <input type="text" id="discountPrice4" class="form-control" required><br>
+                <label for="note4">Ghi chú:</label>
+                <textarea id="note4" class="form-control"></textarea>
+            </form>
+        </div>
+
+        <!-- Print Button -->
+        <button class="btn btn-primary" onclick="generateReceipt()">Nhập dữ liệu</button>
+    </div>
+
+    <script>
+        function generateReceipt() {
+            // Lấy dữ liệu từ các form
+            const data = [
+                {
+                    name: document.getElementById('productName1').value,
+                    price: document.getElementById('price1').value,
+                    discountPrice: document.getElementById('discountPrice1').value,
+                    note: document.getElementById('note1').value
+                },
+                {
+                    name: document.getElementById('productName2').value,
+                    price: document.getElementById('price2').value,
+                    discountPrice: document.getElementById('discountPrice2').value,
+                    note: document.getElementById('note2').value
+                },
+                {
+                    name: document.getElementById('productName3').value,
+                    price: document.getElementById('price3').value,
+                    discountPrice: document.getElementById('discountPrice3').value,
+                    note: document.getElementById('note3').value
+                },
+                {
+                    name: document.getElementById('productName4').value,
+                    price: document.getElementById('price4').value,
+                    discountPrice: document.getElementById('discountPrice4').value,
+                    note: document.getElementById('note4').value
+                }
+            ];
+
+            // Lưu dữ liệu vào localStorage để truy cập từ inphieu.html
+            localStorage.setItem('receiptData', JSON.stringify(data));
+
+            // Chuyển hướng đến inphieu.html
+            window.location.href = 'inphieu.html';
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

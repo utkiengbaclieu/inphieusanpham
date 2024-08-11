@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information Forms</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    
+</head>
+<body>
+    <div class="main">
+        <h5>Phiếu Thông Tin Sản Phẩm Điện Máy Út Kiểng 2
+            
+     <button onclick="window.print()">In ra giấy</button>
+        </h5> 
+        <div class="col-1"> 
+              <!-- phiếu 1 --> 
+            <div class="container mt-5">   
+                <div class="cart-container mt-5">
+                    <div class="cart-header">
+                        Trung tâm mua sắm điện máy Út Kiểng 2
+                    </div>
+                    <div class="cart-body">
+                        <div class="cart-item">
+                            <span class="cart-label">Tên sản phẩm:</span>
+                            <span class="cart-value" id="displayProductName1"></span>
+                        </div>
+                        <div class="cart-item">
+                            <span class="cart-label">Giá niêm yết:</span>
+                            <span class="cart-value" id="displayPrice1"></span>
+                        </div>
+                        <div class="cart-item">
+                            <span class="cart-label">Giá giảm:</span>
+                            <span class="cart-value" id="displayDiscountPrice1"></span>
+                        </div>
+                        <div class="note">
+                            <span class="cart-label">Ghi chú:</span>
+                            <span class="cart-value" id="displayNote1"></span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- phiếu 2 -->
+            <div class="container mt-5">   
+                <div class="cart-container mt-4">
+                    <div class="cart-header">
+                        Trung tâm mua sắm điện máy Út Kiểng 2
+                    </div>
+                    <div class="cart-body">
+                        <div class="cart-item">
+                            <span class="cart-label">sản phẩm:</span>
+                            <span class="cart-value" id="displayProductName2"></span>
+                        </div>
+                        <div class="cart-item">
+                            <span class="cart-label">Giá bán:</span>
+                            <span class="cart-value" id="displayPrice2"></span>
+                        </div>
+                        <div class="cart-item">
+                            <span class="cart-label">Giá giảm:</span>
+                            <span class="cart-value" id="displayDiscountPrice2"></span>
+                        </div>
+                        <div class="note">
+                            <span class="cart-label">Ghi chú:</span>
+                            <span class="cart-value" id="displayNote2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+        <div class="col-1">
+            <!-- phiếu 3 -->
+            <div class="container mt-5">   
+                <div class="cart-container mt-4">
+                    <div class="cart-header">
+                        Trung tâm mua sắm điện máy Út Kiểng 2
+                    </div>
+                    <div class="cart-body">
+                        <div class="cart-item">
+                            <span class="cart-label">sản phẩm:</span>
+                            <span class="cart-value" id="displayProductName3"></span>
+                        </div>
+                        <div class="cart-item">
+                            <span class="cart-label">Giá bán:</span>
+                            <span class="cart-value" id="displayPrice3"></span>
+                        </div>
+                        <div class="cart-item">
+                            <span class="cart-label">Giá giảm:</span>
+                            <span class="cart-value" id="displayDiscountPrice3"></span>
+                        </div>
+                        <div class="note">
+                            <span class="cart-label">Ghi chú:</span>
+                            <span class="cart-value" id="displayNote3"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <!-- phiếu 4 -->
+            <div class="container mt-5">   
+                <div class="cart-container mt-4">
+                    <div class="cart-header">
+                        Trung tâm mua sắm điện máy Út Kiểng 2
+                    </div>
+                    <div class="cart-body">
+                        <div class="cart-item">
+                            <span class="cart-label">sản phẩm:</span>
+                            <span class="cart-value" id="displayProductName4"></span>
+                        </div>
+                        <div class="cart-item">
+                            <span class="cart-label">Giá bán:</span>
+                            <span class="cart-value" id="displayPrice4"></span>
+                        </div>
+                        <div class="cart-item">
+                            <span class="cart-label">Giá giảm:</span>
+                            <span class="cart-value" id="displayDiscountPrice4"></span>
+                        </div>
+                        <div class="note">
+                            <span class="cart-label">Ghi chú:</span>
+                            <span class="cart-value" id="displayNote4"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>      
+        </div>  
+    </div>
+   
+    <script>
+        function populateReceipts() {
+            // Lấy dữ liệu từ localStorage
+            const data = JSON.parse(localStorage.getItem('receiptData'));
+
+            // Hiển thị dữ liệu vào các phiếu
+            data.forEach((item, index) => {
+                document.getElementById(`displayProductName${index + 1}`).textContent = item.name;
+                document.getElementById(`displayPrice${index + 1}`).textContent = item.price;
+                document.getElementById(`displayDiscountPrice${index + 1}`).textContent = item.discountPrice;
+                document.getElementById(`displayNote${index + 1}`).textContent = item.note;
+            });
+        }
+
+        window.onload = populateReceipts;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+</body>
+</html>
